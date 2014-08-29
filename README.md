@@ -33,8 +33,8 @@ See more information on checking you have these packages installed, and how to i
 ## Steps
 
 1. Setting up your Raspberry Pi
-1. Creating a magnetic latch
-1. Making a surface speaker
+1. Setting up a servo
+1. Making sounds with a 3.5mm speaker
 1. Code
 
 ## Worksheet & included files
