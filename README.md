@@ -10,16 +10,17 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 ### Hardware
 
 - 1 x Push button - we like [this big red one from Proto-PIC](http://proto-pic.co.uk/big-dome-push-button/)
-- 1 x Solenoid 5V - [Proto-PIC](http://proto-pic.co.uk/solenoid-5v-small/)
-- 1 x Magnet - [Proto-PIC](http://proto-pic.co.uk/magnet-ring-3-16/)
-- 1 x Transistor - [Proto-PIC](http://proto-pic.co.uk/common-bjt-transistor-npn-2n3904/)
-- 1 x Extra Breadboard power supply - [Proto-PIC](http://proto-pic.co.uk/breadboard-power-supply-5v-3-3v/)
-- 1 x Surface Transducer - [Proto-PIC](http://proto-pic.co.uk/surface-transducer-small/)
 
+
+
+
+
+
+- 1 x Extra Breadboard power supply - [Proto-PIC](http://proto-pic.co.uk/breadboard-power-supply-5v-3-3v/)
 ### Software
 
-- 
-- 
+-
+-
 
 See more information on checking you have these packages installed, and how to install them, on the [software installation](software.md) page.
 
