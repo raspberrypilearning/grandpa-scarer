@@ -5,8 +5,7 @@ Then to make sure everything is up to date, open an lxterminal and enter
 ```sudo apt-get update && upgrade```
 
 ##Step 1: Making the box enclosure
-
-![Box](images/Drawing.jpg)
+![Box](images/drawing.jpg)
 
 To make the box, we recommend lasercutting it out of 3mm plywood. The simplest way to do this is find a local makerspace/hackspace with a lasercutter and politely ask them if they can help.
 Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help.
@@ -20,28 +19,24 @@ The required cutting area is 550mm x 400mm. If your lasercutter bed is smaller t
 **As every lasercutter is different and lasers are dangerous, please only operate a lasercutter if you are trained to use that specific lasercutter and its owner is happy with you doing so.**
 
 1. Lasercut the box using the settings above.
-
 ![Lasering](images/Lasering.jpg)
-
 2. Use a hot-glue gun to glue all the pieces of the box together. You may need someone else to help you to hold the box together as you glue it. Don't be worried if it goes everywhere, no one sees the inside of the box!
-
 ![BoxGlue](images/BoxGlue1.jpg)
-
 3. Grab your hinges and hot glue them on the opposite side of the servo mount on the top side of the box.
-
 ![Hinges](images/Hinges1.jpg)
-
 ![Hinges](images/Hinges2.jpg)  
 
-
 ##Step 2: Using a servo
-
 ![Servo](images/Servo.jpg)
-
 Servos are small motors with control circuitery embedded that can turn up to 180 degrees.
 You control the servo by turning one of the GPIO pins on and off at an incredibly fast rate. The length of the pulses (also known as pulse width) is what controls which direct the servo is pointing in.
 These signals are called PWM (Pulse Width Modulation) and allows you to do all maner of things from dimming LEDs to driving motors slower than normal.
 The Raspberry Pi as standard does not support generating these PWM signals as it does not have a dedicated clock system to do it. For this project we are using software generated PWM signals. The drawback of this though is the signals won't be perfect so the servo may jiggle back and forth a bit.
+
+####Wiring up your servo
+Servos have three leads coming off of them. Normally the brown/black one is ground, the red is 5v (for hobby servos) and yellow/orange is the signal. We will use male to female jumper wires in order to connect the female pins of servo to the Pi's GPIO pins. First connect the brown/black wire of your servo to pin 9 of the Pi. Then attach the red wire of your servo to pin 2 - the 5v pin of the Pi. Finally connect the control wire of the servo (yellow/orange) to pin 11 on the Pi. Here's a circuit diagram:
+
+![](images/servo.png)
 
 ####Using a servo with RPi.GPIO
 We will be using a servo for the latch that holds the panel closed.
@@ -87,7 +82,30 @@ Next we need to wire up the other wire from the button - this is going straight 
 
 ![](images/buttonInputGnd.png)
 
-And that is it! Your button is now all wired up. If you have a mess of long cables wired up to it it would be advisable to connect them to a drill and spin them together
+And that is it! Your button is now all wired up. If you have a mess of long cables wired up to it it would be advisable to connect them to a drill and spin them together.
+
+Now let's have a look at the code that we need to read the input of a button:
+
+```python
+# Imports necessary libraries
+import RPi.GPIO as GPIO
+import time
+
+# Sets the Pi so it knows we are using the physical numbers
+GPIO.setmode(GPIO.BOARD)
+
+# Sets up pin 18 as an input
+GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+
+# Detects the button being pressed
+def waitButton():
+  GPIO.wait_for_edge(18, GPIO.RISING)
+  print('Button pressed!')
+
+# Runs function
+waitbutton()
+```
+
 
 ##Step 4: Playing sounds
 
@@ -97,8 +115,31 @@ One of the key aspects of your grandpa scarer is the loud noise that it will mak
 
 We recommend the Pi Hut's one as it is small, nifty and powerful. You can easily hold it in place in the enclosure with two cable ties and it can be charged from the Pi using its accompanying micro USB cable.
 
-Why don't you go ahead and mount it into the enclosure (making sure it is turned on using the button on the bottom of the speaker) and plug the power lead (micro USB to USB) into the Pi and the 3.5mm audio cable into the jack on the Pi and the jack on the Pi Hut speaker.
+Why don't you go ahead and mount it into the enclosure (making sure it is turned on using the button on the bottom of the speaker) and plug the power lead (micro USB to USB) into the Pi and the 3.5mm audio cable into the jack on the Pi and the jack on the Pi Hut speaker. We have included some scary sounds in the code directory - feel free to add your own and edit the program!
 
+Now let's have a look at the Python code to play those noises:
+
+```python
+# Imports necessary modules
+import time
+import pygame
+import random
+
+def sound():
+  # A list full of our sounds
+  sounds = ["Female_Scream_Horror-NeoPhyTe-138499973.mp3", "Monster_Gigante-Doberman-1334685792.mp3", "Scary Scream-SoundBible.com-1115384336.mp3", "Sick_Villain-Peter_De_Lang-1465872262.mp3"]
+  # Random choice of sounds is made
+  choice = random.choice(sounds)
+  # Initializes the sound and plays through speaker
+  pygame.mixer.init()
+  pygame.mixer.music.load(choice)
+  pygame.mixer.music.play()
+  while pygame.mixer.music.get_busy() == True:
+      continue
+  time.sleep(0.3)
+
+sound()
+```
 ##Step 5: Assembly
 
 Now you'll need to mount all of your electronics into your box. As the Pi is the brains of the entire operation you'll need to mount that first. You can see a laser engraved outline for where the Pi should sit located on the right hand side of the inside of the box. This is optimized for the Raspberry Pi B+ as there are four mounting holes. As you can see from the picture below we used spacers (3D printed ones) and screws to fasten our Pi in the enclosure however you could quite easily screw it straight onto the side.
