@@ -5,6 +5,7 @@ Then to make sure everything is up to date, open an lxterminal and enter
 ```sudo apt-get update && upgrade```
 
 ##Step 1: Making the box enclosure
+
 ![Box](images/drawing.jpg)
 
 To make the box, we recommend lasercutting it out of 3mm plywood. The simplest way to do this is find a local makerspace/hackspace with a lasercutter and politely ask them if they can help.
@@ -19,15 +20,24 @@ The required cutting area is 550mm x 400mm. If your lasercutter bed is smaller t
 **As every lasercutter is different and lasers are dangerous, please only operate a lasercutter if you are trained to use that specific lasercutter and its owner is happy with you doing so.**
 
 1. Lasercut the box using the settings above.
+
 ![Lasering](images/Lasering.jpg)
+
 2. Use a hot-glue gun to glue all the pieces of the box together. You may need someone else to help you to hold the box together as you glue it. Don't be worried if it goes everywhere, no one sees the inside of the box!
+
 ![BoxGlue](images/BoxGlue1.jpg)
+
 3. Grab your hinges and hot glue them on the opposite side of the servo mount on the top side of the box.
+
 ![Hinges](images/Hinges1.jpg)
+
 ![Hinges](images/Hinges2.jpg)  
 
+
 ##Step 2: Using a servo
+
 ![Servo](images/Servo.jpg)
+
 Servos are small motors with control circuitery embedded that can turn up to 180 degrees.
 You control the servo by turning one of the GPIO pins on and off at an incredibly fast rate. The length of the pulses (also known as pulse width) is what controls which direct the servo is pointing in.
 These signals are called PWM (Pulse Width Modulation) and allows you to do all maner of things from dimming LEDs to driving motors slower than normal.
