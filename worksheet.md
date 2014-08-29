@@ -10,12 +10,12 @@ Then to make sure everything is up to date, open an lxterminal and enter
 
 To make the box, we recommend lasercutting it out of 3mm plywood. The simplest way to do this is find a local makerspace/hackspace with a lasercutter and politely ask them if they can help.
 Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help.
-The required file ready to cut can be found here -
+The required file ready to cut can be found here - [Box](https://github.com/raspberrypilearning/grandpa_scarer/blob/master/design-files/Box-design.pdf?raw=true)
 The settings required are as follows
-- **Black** - Cutting completely through power
-- **Red** - Score power, should only leave faint lines
+- **Black** - Cut directly through
+- **Red** - Lower power to just score the wood.
 
-The required cutting area is 550mm x 400mm. If your lasercutter bed is smaller than that then open the file in the program like Inkscape or Adobe Illustrator and split it into 2 sheets.
+The required cutting area is 450mm x 400mm. If your lasercutter bed is smaller than that then open the file in the program like Inkscape or Adobe Illustrator and split it into 2 sheets.
 
 **As every lasercutter is different and lasers are dangerous, please only operate a lasercutter if you are trained to use that specific lasercutter and its owner is happy with you doing so.**
 
@@ -132,5 +132,51 @@ Now close the lid and put the servo in place using its servo horn. We're ready t
 ![](images/finishedBox.jpg)
 
 ##Step 6: Code
+
+Now we put it all together and get thi
+
+```python
+import RPi.GPIO as GPIO  #Imports the standard Raspberry Pi GPIO library
+import time              #Imports sleep (aka wait or pause) into the program
+import pygame            #Imports pygame to play the sounds
+import random            #Imports random to pick a random sound
+
+GPIO.setmode(GPIO.BOARD) #Sets the pin numbering system to using the physical layout
+
+GPIO.setup(11, GPIO.OUT) #Sets up pin 11 to an output (instead of an input)
+GPIO.setup(16,GPIO.OUT)  
+GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP) #Sets up pin 18 to an output and enabled the pull up resistor
+p = GPIO.PWM(11, 50)     #Sets up pin 11 as a PWM pin
+p.start(0)	             #Starts running PWM on the pin and sets it to 0
+
+def waitButton():
+	GPIO.wait_for_edge(18, GPIO.RISING)
+
+def sound():
+  sounds = ["Female_Scream_Horror-NeoPhyTe-138499973.mp3", "Monster_Gigante-Doberman-1334685792.mp3", "Scary Scream-SoundBible.com-1115384336.mp3", "Sick_Villain-Peter_De_Lang-1465872262.mp3"]
+  choice = random.choice(sounds)
+  pygame.mixer.init()
+  pygame.mixer.music.load(choice)
+  pygame.mixer.music.play()
+  while pygame.mixer.music.get_busy() == True:
+      continue
+  time.sleep(0.3)
+
+
+while True:
+  try:
+    waitButton()           #Wait until the button is pushed
+    p.ChangeDutyCycle(3)   #Changes the pulse width to 3 (so moves the servo)
+    time.sleep(0.1)        #Allow the servo to move
+    sound()                #Play a sound file
+    time.sleep(2)          #Wait for 2 seconds to allow you to release the button
+    waitButton()           #Wait until the button is pushed
+    p.ChangeDutyCycle(12)  #Changes the pulse width to 12 (so moves the servo back)
+    time.sleep(1)          #Allow the servo to move and start program again
+  except(KeyboardInterrupt):  #
+    p.stop()               #At the end of the program, stop the PWM
+    GPIO.cleanup()         #Resets the GPIO pins back to defaults
+
+```
 
 ##Step 7: Scare a grandpa
