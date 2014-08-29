@@ -1,7 +1,7 @@
 
 # Grandpa Scarer
 
-In this project we are going to use a Raspberry Pi to play spooky noises whilst releasing a scary spider from a box onto whoever's underneath.
+In this project we are going to use a Raspberry Pi to play spooky noises whilst releasing a scary spider from a box onto whoever is underneath.
 
 ## Requirements
 
@@ -24,23 +24,23 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 
 ### Software
 
--
--
+All the software packages that we are going to use are installed in Raspbian by default. Make sure to update your SD card in order to stay current. You can do this with the command: ```sudo apt-get update && sudo apt-get upgrade```
 
-See more information on checking you have these packages installed, and how to install them, on the [software installation](software.md) page.
 
 ### Extras
 
-- 1 x Toy Spider
-- 1 x 2 meters of elastic
-- 1 x box with hinges
+- 1 x toy spider
+- 1 x meter of elastic string to attach your spider to your box
 - A way to attach the box to the ceiling.
+- An unsuspecting grandpa
 
 ## Steps
 
+1. Making the box enclosure
 1. Setting up your Raspberry Pi
 1. Setting up a servo
 1. Making sounds with a 3.5mm speaker
+1. Assembly
 1. Code
 
 ## Worksheet & included files
@@ -51,11 +51,13 @@ See more information on checking you have these packages installed, and how to i
 
 ## Disclaimer
 
-
+1. Do not scare people with medical conditions that could be easily be triggered.
+2. Make sure that the box is safely and firmly attached to the ceiling. Do not take risks with this as the final product is quite heavy and could be dangerous if it falls on someone. We recommend an adult takes over for this part ;-)
+3. Take care when using the machinery described. Always have a qualified adult supervising when using appliances such as laser cutters.
 
 ## Community
 
-
+This project was the work experience task of Matthew Timmons-Brown (The Raspberry Pi Guy) and Andrew Mulholland (gbaman1) who were under the care of Rachel Rayns.
 
 ## Licence
 
