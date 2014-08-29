@@ -6,6 +6,7 @@ Then to make sure everything is up to date, open an lxterminal and enter
 
 ##Step 1: Making the box enclosure
 ![Box](images/drawing.jpg)
+
 To make the box, we recommend lasercutting it out of 3mm plywood. The simplest way to do this is find a local makerspace/hackspace with a lasercutter and politely ask them if they can help.
 Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help.
 The required file ready to cut can be found here -
