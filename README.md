@@ -31,6 +31,8 @@ See more information on checking you have these packages installed, and how to i
 - 1 x box with hinges
 - A way to attach the box to the ceiling.
 
+PINEAPPLE
+
 ## Steps
 
 1. Setting up your Raspberry Pi
