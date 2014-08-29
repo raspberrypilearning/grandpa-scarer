@@ -43,7 +43,7 @@ All the software packages that we are going to use are installed in Raspbian by 
 1. Playing sounds
 1. Assembly
 1. Code
-1. Grandpa scaring!
+1. Scare a grandpa!
 
 ## Worksheet & included files
 
