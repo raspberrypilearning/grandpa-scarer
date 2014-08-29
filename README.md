@@ -10,16 +10,22 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 ### Hardware
 
 - 1 x Push button - we like [this big red one from Proto-PIC](http://proto-pic.co.uk/big-dome-push-button/)
-- 1 x Solenoid 5V - [Proto-PIC](http://proto-pic.co.uk/solenoid-5v-small/)
-- 1 x Magnet - [Proto-PIC](http://proto-pic.co.uk/magnet-ring-3-16/)
-- 1 x Transistor - [Proto-PIC](http://proto-pic.co.uk/common-bjt-transistor-npn-2n3904/)
-- 1 x Extra Breadboard power supply - [Proto-PIC](http://proto-pic.co.uk/breadboard-power-supply-5v-3-3v/)
-- 1 x Surface Transducer - [Proto-PIC](http://proto-pic.co.uk/surface-transducer-small/)
+- 1 x Servo - [Proto-PIC](http://proto-pic.co.uk/analogue-9-gram-servo/)
+- 1 x Wooden box - [See-below]()
+- 1 x Wire - [Proto-PIC](http://proto-pic.co.uk/hook-up-wire-assortment-solid-core/)
+- 1 x Cable ties - [B&Q](http://www.diy.com/nav/fix/electrical/cable-management/cable_ties/B-and-Q-Black-295mm-Cable-Ties-Pack-of-50-12848940?skuId=13359646)
+- 1 x Speaker - [PiHut](http://thepihut.com/products/mini-portable-speaker-for-the-raspberry-pi/)
+- 2 x Metal hinges - [B&Q](http://www.diy.com/nav/build/doors/door-furniture/door_hinges/-specificproducttype-butt_hinges/B-and-Q-Butt-Hinge-Brass-Plated-9370558?skuId=9671263)
+- 1 x 5mm red LED - [Proto-PIC](http://proto-pic.co.uk/led-starter-kit/)
+- 1 x 330R resistor - [Proto-PIC](http://proto-pic.co.uk/led-starter-kit/)
+####Optional
+- 1 x USB battery pack
+- 1 x Wifi adapter
 
 ### Software
 
-- 
-- 
+-
+-
 
 See more information on checking you have these packages installed, and how to install them, on the [software installation](software.md) page.
 
