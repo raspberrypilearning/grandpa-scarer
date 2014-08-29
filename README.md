@@ -38,10 +38,12 @@ All the software packages that we are going to use are installed in Raspbian by 
 
 1. Making the box enclosure
 1. Setting up your Raspberry Pi
-1. Setting up a servo
-1. Making sounds with a 3.5mm speaker
+1. Using a servo
+1. Wiring the button and LED up
+1. Playing sounds
 1. Assembly
 1. Code
+1. Grandpa scaring!
 
 ## Worksheet & included files
 
