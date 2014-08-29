@@ -12,4 +12,4 @@
 
 ##Step 6: Code
 
-##Step 7: Scare a grampa
+##Step 7: Scare a grandpa
