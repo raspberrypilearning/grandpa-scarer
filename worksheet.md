@@ -8,8 +8,9 @@ Then to make sure everything is up to date, open an lxterminal and enter
 ![Box](images/Drawing.jpg)
 
 To make the box, we recommend lasercutting it out of 3mm plywood. The simplest way to do this is find a local makerspace/hackspace with a lasercutter and politely ask them if they can help.
-Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help.
-The required file ready to cut can be found here - [Box](https://github.com/raspberrypilearning/grandpa_scarer/blob/master/design-files/Box-design.pdf?raw=true)
+Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help. If all else fails, it may be possible to make the box out of tough cardboard.
+The required file ready to cut can be found - [Here](design-files/Box-design.pdf)
+The design is also available in a number of different formats which can be found - [Here](design-files/)
 The settings required are as follows
 - **Black** - Cut directly through
 - **Red** - Lower power to just score the wood.
@@ -20,7 +21,7 @@ The required cutting area is 450mm x 400mm. If your lasercutter bed is smaller t
 
 1. Lasercut the box using the settings above.
 ![Lasering](images/Lasering.jpg)
-2. Use a hot-glue gun to glue all the pieces of the box together. You may need someone else to help you to hold the box together as you glue it. Don't be worried if it goes everywhere, no one sees the inside of the box!
+2. Use a hot-glue gun to glue all the pieces of the box together. You may need someone else to help you to hold the box together as you glue it. Don't be worried if the glue goes everywhere, no one sees the inside of the box!
 ![BoxGlue](images/BoxGlue1.jpg)
 3. Grab your hinges and hot glue them on the opposite side of the servo mount on the top side of the box.
 ![Hinges](images/Hinges1.jpg)
@@ -70,7 +71,14 @@ In order for your grandpa scarer to be activated you will need to hook up a butt
 
 ![](images/button.jpg)
 
-Buttons work on this concept - you have two wires, one connected to ground and the other to one of the GPIO pins on the Pi. You would think that if you set this pin as an input then you'd very easily be able to view the button being pressed. Sadly that is not the case. If we do this then the Pi will not know what state the button is in. This is called a floating input and even things like moving the wires will cause it to change randomly... In order to fix this we need to use the Pi's inbuilt pull up resistors. These are clever little things as they 'pull up' the button into one state. That way when you hit it the Pi will see that it has definitely changed.
+Buttons work on this concept - you have twi wires, one connected to ground the other connected to a GPIO pin. When you press the button the circuit completes and the GPIO pin sees ground. You would think that is all that is needed but if we leave it at that, we may get left with a "floating input". A floating input occures when the GPIO pin is connected to nothing (aka when the button is not being pressed it is connected to nothing). The issue with this is the GPIO pin value with float back and forth between a 0 and 1 randomly.
+
+###Pull up resistors
+
+To fix this issue, we use the Raspberry Pi's clever little built in pull of resistors. These work by connecting the GPIO pin to 3.3v via a very large resistance resistor (usually 10k!). This is a difficult path for the current to take so it only takes it as a last resort. If the button isn't pushed this is the only option so the GPIO pin sees 3.3v, but if the button is pressed, it sees the much easier to get to ground (as it has no massive resistor).
+We could quite easily build this circuit on a breadboard ourselves but the Raspberry Pi has it built in on every GPIO pin so why create more work for ourselves?
+
+###Wiring it up
 
 Now that you understand the basic principles behind the button's operation lets wire it up. First off you should have two wires connected to two of the pins on your button. The one we used had two clearly marked pins for this however it is not uncommon for buttons (especially the breadboard variety) to have four legs - these are just two sets of two and so make sure that you only wire up one set. TIP: Colour code them. Our wires were around six meters long in order for a maximum scaring distance!
 
@@ -82,7 +90,7 @@ Next we need to wire up the other wire from the button - this is going straight 
 
 ![](images/buttonInputGnd.png)
 
-And that is it! Your button is now all wired up. If you have a mess of long cables wired up to it it would be advisable to connect them to a drill and spin them together.
+And that is it! Your button is now all wired up. If you have a mess of long cables now going to the button, it may be an idea to put 1 end of each into a hand drill and have a friend hold the other end. Then spin the drill to wind the cables together. You may need to use tape to help stop it unwinding.
 
 Now let's have a look at the code that we need to read the input of a button:
 
@@ -91,7 +99,7 @@ Now let's have a look at the code that we need to read the input of a button:
 import RPi.GPIO as GPIO
 import time
 
-# Sets the Pi so it knows we are using the physical numbers
+# Sets the Pi so it knows we are using the physical pin numbering
 GPIO.setmode(GPIO.BOARD)
 
 # Sets up pin 18 as an input
@@ -115,7 +123,7 @@ One of the key aspects of your grandpa scarer is the loud noise that it will mak
 
 We recommend the Pi Hut's one as it is small, nifty and powerful. You can easily hold it in place in the enclosure with two cable ties and it can be charged from the Pi using its accompanying micro USB cable.
 
-Why don't you go ahead and mount it into the enclosure (making sure it is turned on using the button on the bottom of the speaker) and plug the power lead (micro USB to USB) into the Pi and the 3.5mm audio cable into the jack on the Pi and the jack on the Pi Hut speaker. We have included some scary sounds in the code directory - feel free to add your own and edit the program!
+Why don't you go ahead and plug it into your Raspberry Pi (making sure it is turned on using the button on the bottom of the speaker) and plug the power lead (micro USB to USB) into the Pi and the 3.5mm audio cable into the jack on the Pi and the jack on the Pi Hut speaker. We have included some scary sounds in the code directory - feel free to add your own and edit the program!
 
 Now let's have a look at the Python code to play those noises:
 
@@ -126,23 +134,33 @@ import pygame
 import random
 
 def sound():
-  # A list full of our sounds
+  # A list full of our sound files
   sounds = ["Female_Scream_Horror-NeoPhyTe-138499973.mp3", "Monster_Gigante-Doberman-1334685792.mp3", "Scary Scream-SoundBible.com-1115384336.mp3", "Sick_Villain-Peter_De_Lang-1465872262.mp3"]
-  # Random choice of sounds is made
+  # Picks a random sound
   choice = random.choice(sounds)
   # Initializes the sound and plays through speaker
   pygame.mixer.init()
   pygame.mixer.music.load(choice)
   pygame.mixer.music.play()
+  #Wait till the sound is finshed
   while pygame.mixer.music.get_busy() == True:
       continue
   time.sleep(0.3)
 
 sound()
 ```
+
+All the sounds can be found in the [sounds](sounds/) folder.
+To get these on your Raspberry Pi, you can use
+```Bash
+wget https://github.com/raspberrypilearning/grandpa_scarer/blob/master/sounds/Sounds.zip?raw=true --no-check-certificate
+unzip Sounds.zip
+```
+
+
 ##Step 5: Assembly
 
-Now you'll need to mount all of your electronics into your box. As the Pi is the brains of the entire operation you'll need to mount that first. You can see a laser engraved outline for where the Pi should sit located on the right hand side of the inside of the box. This is optimized for the Raspberry Pi B+ as there are four mounting holes. As you can see from the picture below we used spacers (3D printed ones) and screws to fasten our Pi in the enclosure however you could quite easily screw it straight onto the side.
+Now you'll need to mount all of your electronics into your box. As the Pi is the brains of the entire operation you'll need to mount that first. You can see a laser engraved outline for where the Pi should sit located on the right hand side of the inside of the box. This is optimized for the Raspberry Pi B+ as there are four mounting holes. As you can see from the picture below we used spacers (3D printed ones) and M2.5 screws to fasten our Pi in the enclosure however you could quite easily screw it straight onto the side.
 
 ![](images/PiInEnclosure.jpg)
 
@@ -174,7 +192,7 @@ Now close the lid and put the servo in place using its servo horn. We're ready t
 
 ##Step 6: Code
 
-Now we put it all together and get thi
+Now we put it all together and get this
 
 ```python
 import RPi.GPIO as GPIO  #Imports the standard Raspberry Pi GPIO library
@@ -191,20 +209,24 @@ p = GPIO.PWM(11, 50)     #Sets up pin 11 as a PWM pin
 p.start(0)	             #Starts running PWM on the pin and sets it to 0
 
 def waitButton():
-	GPIO.wait_for_edge(18, GPIO.RISING)
+	GPIO.wait_for_edge(18, GPIO.RISING)  #Waits for the button to be pressed
 
 def sound():
+  # A list full of our sound files
   sounds = ["Female_Scream_Horror-NeoPhyTe-138499973.mp3", "Monster_Gigante-Doberman-1334685792.mp3", "Scary Scream-SoundBible.com-1115384336.mp3", "Sick_Villain-Peter_De_Lang-1465872262.mp3"]
+  # Picks a random sound
   choice = random.choice(sounds)
+  # Initializes the sound and plays through speaker
   pygame.mixer.init()
   pygame.mixer.music.load(choice)
   pygame.mixer.music.play()
+  #Wait till the sound is finshed
   while pygame.mixer.music.get_busy() == True:
       continue
   time.sleep(0.3)
 
-
-while True:
+#Main program section
+while True:  #Forever loop (until you hit ctrl+c)
   try:
     waitButton()           #Wait until the button is pushed
     p.ChangeDutyCycle(3)   #Changes the pulse width to 3 (so moves the servo)
@@ -214,10 +236,16 @@ while True:
     waitButton()           #Wait until the button is pushed
     p.ChangeDutyCycle(12)  #Changes the pulse width to 12 (so moves the servo back)
     time.sleep(1)          #Allow the servo to move and start program again
-  except(KeyboardInterrupt):  #
+  except(KeyboardInterrupt):  
     p.stop()               #At the end of the program, stop the PWM
     GPIO.cleanup()         #Resets the GPIO pins back to defaults
 
 ```
 
 ##Step 7: Scare a grandpa
+Attach your box above an unsuspecting grandpa (or other family member of friend) using a secure method.
+###Warning!!
+**Please get an adult to attach the box and only when they are completely confident it wont fall, then use it.**
+If hanging the box using string, please make use of the four holes on the outer corners of the box to create a cradle of string to hang it from.
+
+Above all though, be careful as a wooden box falling on someone's head could cause serious harm!

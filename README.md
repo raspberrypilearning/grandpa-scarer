@@ -1,7 +1,8 @@
 
 # Grandpa Scarer
 
-In this project we are going to use a Raspberry Pi to play spooky noises whilst releasing a scary spider from a box onto whoever is underneath.
+In this project we are going to use a Raspberry Pi to play spooky noises whilst releasing a scary spider from a box onto whoever is underneath at the press of a button!
+![Box](images/finishedBox.jpg)
 
 ## Requirements
 
@@ -11,8 +12,8 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 
 - 1 x Push button - we like [this big red one from Proto-PIC](http://proto-pic.co.uk/big-dome-push-button/)
 - 1 x Servo - [Proto-PIC](http://proto-pic.co.uk/analogue-9-gram-servo/)
-- 1 x Wooden box - [See-below]()
-- 1 x Wire - [Proto-PIC](http://proto-pic.co.uk/hook-up-wire-assortment-solid-core/)
+- 1 x Wooden box - [See "Making the box enclosure" section]()
+- 1 x Wire set - [Proto-PIC](http://proto-pic.co.uk/hook-up-wire-assortment-solid-core/)
 - 1 x Cable ties - [B&Q](http://www.diy.com/nav/fix/electrical/cable-management/cable_ties/B-and-Q-Black-295mm-Cable-Ties-Pack-of-50-12848940?skuId=13359646)
 - 1 x Speaker - [PiHut](http://thepihut.com/products/mini-portable-speaker-for-the-raspberry-pi/)
 - 2 x Metal hinges - [B&Q](http://www.diy.com/nav/build/doors/door-furniture/door_hinges/-specificproducttype-butt_hinges/B-and-Q-Butt-Hinge-Brass-Plated-9370558?skuId=9671263)
@@ -24,7 +25,9 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 
 ### Software
 
-All the software packages that we are going to use are installed in Raspbian by default. Make sure to update your SD card in order to stay current. You can do this with the command: ```sudo apt-get update && sudo apt-get upgrade```
+All the software packages that we are going to use are installed in
+Raspbian by default. Make sure to update your SD card in order to stay current.
+You can do this with the command: ```sudo apt-get update && sudo apt-get upgrade```
 
 
 ### Extras
