@@ -63,7 +63,7 @@ All the software packages that we are going to use are installed in Raspbian by 
 
 ## Community
 
-This project was the work experience task of Matthew Timmons-Brown (The Raspberry Pi Guy) and Andrew Mulholland (gbaman1) who were under the care of Rachel Rayns.
+This project was the work experience task of [Matthew Timmons-Brown](https://github.com/the-raspberry-pi-guy) (The Raspberry Pi Guy) and [Andrew Mulholland](https://github.com/gbaman) who were under the care of [Rachel Rayns](https://github.com/RZRZR).
 
 ## Licence
 
