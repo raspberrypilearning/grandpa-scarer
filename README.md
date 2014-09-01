@@ -13,7 +13,7 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 
 - 1 x Push button - we like [this big red one from Proto-PIC](http://proto-pic.co.uk/big-dome-push-button/)
 - 1 x Servo - [Proto-PIC](http://proto-pic.co.uk/analogue-9-gram-servo/)
-- 1 x Wooden box - [See "Making the box enclosure" section]()
+- 1 x Wooden box - [We use the Boxmaker app to start our lasercut box design](http://boxmaker.rahulbotics.com/)
 - 1 x Wire set - [Proto-PIC](http://proto-pic.co.uk/hook-up-wire-assortment-solid-core/)
 - 1 x Cable ties - [B&Q](http://www.diy.com/nav/fix/electrical/cable-management/cable_ties/B-and-Q-Black-295mm-Cable-Ties-Pack-of-50-12848940?skuId=13359646)
 - 1 x Speaker - [PiHut](http://thepihut.com/products/mini-portable-speaker-for-the-raspberry-pi/)
