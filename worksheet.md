@@ -1,9 +1,3 @@
-##Step 0: Setup your Raspberry Pi
-You will need to set up your Raspberry Pi to take part in this activity. [See the Raspberry Pi Quick Start Guide here](http://www.raspberrypi.org/quick-start-guide) to get you up and running.
-
-Then to make sure everything is up to date, open an lxterminal and enter
-```sudo apt-get update && upgrade```
-
 ##Step 1: Making the box enclosure
 ![Box](images/Drawing.jpg)
 
