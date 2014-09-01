@@ -53,7 +53,7 @@ All the software packages that we are going to use are installed in Raspbian by 
 
 - [The worksheet](worksheet.md)
 - (Optional) Final version of Python code [grandpa_scarer.py](code/grandpa_scarer.py)
-    - Download to your Pi with `wget http://goo.gl/BKd6dJ -O grandpa_scarer.py --no-check-certificate`
+    - Download to your Pi with `wget http://goo.gl/lUuohk -O grandpa_scarer.py --no-check-certificate`
 
 ## Disclaimer
 
