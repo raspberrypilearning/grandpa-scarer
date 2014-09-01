@@ -1,3 +1,5 @@
+# Grandpa Scarer
+
 ## Step 1: Making the box enclosure
 ![Box](images/Drawing.jpg)
 
