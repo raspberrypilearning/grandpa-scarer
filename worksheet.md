@@ -1,4 +1,4 @@
-##Step 1: Making the box enclosure
+## Step 1: Making the box enclosure
 ![Box](images/Drawing.jpg)
 
 To make the box, we recommend lasercutting it out of 3mm plywood. The simplest way to do this is find a local makerspace/hackspace with a lasercutter and politely ask them if they can help.
@@ -21,19 +21,19 @@ The required cutting area is 450mm x 400mm. If your lasercutter bed is smaller t
 ![Hinges](images/Hinges1.jpg)
 ![Hinges](images/Hinges2.jpg)  
 
-##Step 2: Using a servo
+## Step 2: Using a servo
 ![Servo](images/Servo.jpg)
 Servos are small motors with control circuitery embedded that can turn up to 180 degrees.
 You control the servo by turning one of the GPIO pins on and off at an incredibly fast rate. The length of the pulses (also known as pulse width) is what controls which direct the servo is pointing in.
 These signals are called PWM (Pulse Width Modulation) and allows you to do all maner of things from dimming LEDs to driving motors slower than normal.
 The Raspberry Pi as standard does not support generating these PWM signals as it does not have a dedicated clock system to do it. For this project we are using software generated PWM signals. The drawback of this though is the signals won't be perfect so the servo may jiggle back and forth a bit.
 
-####Wiring up your servo
+#### Wiring up your servo
 Servos have three leads coming off of them. Normally the brown/black one is ground, the red is 5v (for hobby servos) and yellow/orange is the signal. We will use male to female jumper wires in order to connect the female pins of servo to the Pi's GPIO pins. First connect the brown/black wire of your servo to pin 9 of the Pi. Then attach the red wire of your servo to pin 2 - the 5v pin of the Pi. Finally connect the control wire of the servo (yellow/orange) to pin 11 on the Pi. Here's a circuit diagram:
 
 ![](images/servo.png)
 
-####Using a servo with RPi.GPIO
+#### Using a servo with RPi.GPIO
 We will be using a servo for the latch that holds the panel closed.
 RPi.GPIO allows for really easy software PWM to be added to your Python programs.
 ``` python
@@ -59,7 +59,7 @@ GPIO.cleanup()           #Resets the GPIO pins back to defaults
 ```
 
 
-##Step 3: Wiring the button and LED up
+## Step 3: Wiring the button and LED up
 
 In order for your grandpa scarer to be activated you will need to hook up a button of some kind - preferably with a long wire attached to it so that you can be far far away when you scare someone. Here is the button that we used:
 
@@ -67,12 +67,12 @@ In order for your grandpa scarer to be activated you will need to hook up a butt
 
 Buttons work on this concept - you have twi wires, one connected to ground the other connected to a GPIO pin. When you press the button the circuit completes and the GPIO pin sees ground. You would think that is all that is needed but if we leave it at that, we may get left with a "floating input". A floating input occures when the GPIO pin is connected to nothing (aka when the button is not being pressed it is connected to nothing). The issue with this is the GPIO pin value with float back and forth between a 0 and 1 randomly.
 
-###Pull up resistors
+### Pull up resistors
 
 To fix this issue, we use the Raspberry Pi's clever little built in pull of resistors. These work by connecting the GPIO pin to 3.3v via a very large resistance resistor (usually 10k!). This is a difficult path for the current to take so it only takes it as a last resort. If the button isn't pushed this is the only option so the GPIO pin sees 3.3v, but if the button is pressed, it sees the much easier to get to ground (as it has no massive resistor).
 We could quite easily build this circuit on a breadboard ourselves but the Raspberry Pi has it built in on every GPIO pin so why create more work for ourselves?
 
-###Wiring it up
+### Wiring it up
 
 Now that you understand the basic principles behind the button's operation lets wire it up. First off you should have two wires connected to two of the pins on your button. The one we used had two clearly marked pins for this however it is not uncommon for buttons (especially the breadboard variety) to have four legs - these are just two sets of two and so make sure that you only wire up one set. TIP: Colour code them. Our wires were around six meters long in order for a maximum scaring distance!
 
@@ -109,7 +109,7 @@ waitbutton()
 ```
 
 
-##Step 4: Playing sounds
+## Step 4: Playing sounds
 
 One of the key aspects of your grandpa scarer is the loud noise that it will make when you hit the button and your spider springs out. We want the sound to be frightening and *almost* deafening. The Pi doesn't have any inbuilt speakers so how do you go about doing this? The answer is to use a small portable speaker that can easily connect to the Pi's 3.5mm audio jack here:
 
@@ -152,7 +152,7 @@ unzip Sounds.zip
 ```
 
 
-##Step 5: Assembly
+## Step 5: Assembly
 
 Now you'll need to mount all of your electronics into your box. As the Pi is the brains of the entire operation you'll need to mount that first. You can see a laser engraved outline for where the Pi should sit located on the right hand side of the inside of the box. This is optimized for the Raspberry Pi B+ as there are four mounting holes. As you can see from the picture below we used spacers (3D printed ones) and M2.5 screws to fasten our Pi in the enclosure however you could quite easily screw it straight onto the side.
 
@@ -184,7 +184,7 @@ Now close the lid and put the servo in place using its servo horn. We're ready t
 
 ![](images/finishedBox.jpg)
 
-##Step 6: Code
+## Step 6: Code
 
 Now we put it all together and get this
 
@@ -236,9 +236,9 @@ while True:  #Forever loop (until you hit ctrl+c)
 
 ```
 
-##Step 7: Scare a grandpa
+## Step 7: Scare a grandpa
 Attach your box above an unsuspecting grandpa (or other family member of friend) using a secure method.
-###Warning!!
+### Warning!!
 **Please get an adult to attach the box and only when they are completely confident it wont fall, then use it.**
 If hanging the box using string, please make use of the four holes on the outer corners of the box to create a cradle of string to hang it from.
 
