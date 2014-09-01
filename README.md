@@ -30,7 +30,7 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 
 All the software packages that we are going to use are installed in
 Raspbian by default. Make sure to update your SD card in order to stay current.
-You can do this with the command: ```sudo apt-get update && sudo apt-get upgrade```
+You can do this with the command: `sudo apt-get update && sudo apt-get upgrade`
 
 
 ### Extras
