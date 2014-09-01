@@ -111,7 +111,6 @@ And that is it! Your button is now all wired up. If you have a mess of long cabl
 Now let's have a look at the code that we need to read the input of a button:
 
 ```python
-# Imports necessary libraries
 import RPi.GPIO as GPIO
 import time
 
@@ -119,12 +118,12 @@ import time
 GPIO.setmode(GPIO.BOARD)
 
 # Sets up pin 18 as an input
-GPIO.setup(18, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+GPIO.setup(18, GPIO.IN, GPIO.PUD_UP)
 
 # Detects the button being pressed
 def waitButton():
-  GPIO.wait_for_edge(18, GPIO.RISING)
-  print('Button pressed!')
+    GPIO.wait_for_edge(18, GPIO.RISING)
+    print('Button pressed!')
 
 # Runs function
 waitbutton()
@@ -143,14 +142,19 @@ Why don't you go ahead and plug it into your Raspberry Pi (making sure it is tur
 Now let's have a look at the Python code to play those noises:
 
 ```python
-# Imports necessary modules
 import time
 import pygame
 import random
 
 def sound():
   # A list full of our sound files
-  sounds = ["Female_Scream_Horror-NeoPhyTe-138499973.mp3", "Monster_Gigante-Doberman-1334685792.mp3", "Scary Scream-SoundBible.com-1115384336.mp3", "Sick_Villain-Peter_De_Lang-1465872262.mp3"]
+  sounds = [
+      "Female_Scream_Horror-NeoPhyTe-138499973.mp3",
+      "Monster_Gigante-Doberman-1334685792.mp3",
+      "Scary Scream-SoundBible.com-1115384336.mp3",
+      "Sick_Villain-Peter_De_Lang-1465872262.mp3"
+  ]
+  
   # Picks a random sound
   choice = random.choice(sounds)
   # Initializes the sound and plays through speaker
@@ -158,7 +162,7 @@ def sound():
   pygame.mixer.music.load(choice)
   pygame.mixer.music.play()
   #Wait till the sound is finshed
-  while pygame.mixer.music.get_busy() == True:
+  while pygame.mixer.music.get_busy():
       continue
   time.sleep(0.3)
 
@@ -166,13 +170,13 @@ sound()
 ```
 
 All the sounds can be found in the [sounds](sounds/) folder.
-To get these on your Raspberry Pi, you can use:-
+
+To get these on your Raspberry Pi, you can use:
 
 ```bash
-wget https://github.com/raspberrypilearning/grandpa_scarer/blob/master/sounds/Sounds.zip?raw=true --no-check-certificate
+wget http://goo.gl/SbK5YJ -O sounds.zip --no-check-certificate
 unzip Sounds.zip
 ```
-
 
 ## Step 5: Assembly
 
