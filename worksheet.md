@@ -1,6 +1,7 @@
 # Grandpa Scarer
 
 ## Step 1: Making the box enclosure
+
 ![Box](images/Drawing.jpg)
 
 To make the box, we recommend lasercutting it out of 3mm plywood. The simplest way to do this is find a local makerspace/hackspace with a lasercutter and politely ask them if they can help.
@@ -24,6 +25,7 @@ The required cutting area is 450mm x 400mm. If your lasercutter bed is smaller t
 ![Hinges](images/Hinges2.jpg)  
 
 ## Step 2: Using a servo
+
 ![Servo](images/Servo.jpg)
 Servos are small motors with control circuitery embedded that can turn up to 180 degrees.
 You control the servo by turning one of the GPIO pins on and off at an incredibly fast rate. The length of the pulses (also known as pulse width) is what controls which direct the servo is pointing in.
@@ -31,11 +33,13 @@ These signals are called PWM (Pulse Width Modulation) and allows you to do all m
 The Raspberry Pi as standard does not support generating these PWM signals as it does not have a dedicated clock system to do it. For this project we are using software generated PWM signals. The drawback of this though is the signals won't be perfect so the servo may jiggle back and forth a bit.
 
 #### Wiring up your servo
+
 Servos have three leads coming off of them. Normally the brown/black one is ground, the red is 5v (for hobby servos) and yellow/orange is the signal. We will use male to female jumper wires in order to connect the female pins of servo to the Pi's GPIO pins. First connect the brown/black wire of your servo to pin 9 of the Pi. Then attach the red wire of your servo to pin 2 - the 5v pin of the Pi. Finally connect the control wire of the servo (yellow/orange) to pin 11 on the Pi. Here's a circuit diagram:
 
 ![](images/servo.png)
 
 #### Using a servo with RPi.GPIO
+
 We will be using a servo for the latch that holds the panel closed.
 RPi.GPIO allows for really easy software PWM to be added to your Python programs.
 ``` python
@@ -59,7 +63,6 @@ sleep(1)
 p.stop()                 #At the end of the program, stop the PWM
 GPIO.cleanup()           #Resets the GPIO pins back to defaults
 ```
-
 
 ## Step 3: Wiring the button and LED up
 
@@ -110,7 +113,6 @@ def waitButton():
 waitbutton()
 ```
 
-
 ## Step 4: Playing sounds
 
 One of the key aspects of your grandpa scarer is the loud noise that it will make when you hit the button and your spider springs out. We want the sound to be frightening and *almost* deafening. The Pi doesn't have any inbuilt speakers so how do you go about doing this? The answer is to use a small portable speaker that can easily connect to the Pi's 3.5mm audio jack here:
@@ -148,7 +150,8 @@ sound()
 
 All the sounds can be found in the [sounds](sounds/) folder.
 To get these on your Raspberry Pi, you can use
-```Bash
+
+```bash
 wget https://github.com/raspberrypilearning/grandpa_scarer/blob/master/sounds/Sounds.zip?raw=true --no-check-certificate
 unzip Sounds.zip
 ```
@@ -239,9 +242,13 @@ while True:  #Forever loop (until you hit ctrl+c)
 ```
 
 ## Step 7: Scare a grandpa
+
 Attach your box above an unsuspecting grandpa (or other family member of friend) using a secure method.
+
 ### Warning!!
+
 **Please get an adult to attach the box and only when they are completely confident it wont fall, then use it.**
+
 If hanging the box using string, please make use of the four holes on the outer corners of the box to create a cradle of string to hang it from.
 
 Above all though, be careful as a wooden box falling on someone's head could cause serious harm!
