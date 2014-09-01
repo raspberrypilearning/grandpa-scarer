@@ -28,16 +28,14 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 
 ### Software
 
-All the software packages that we are going to use are installed in
-Raspbian by default. Make sure to update your SD card in order to stay current.
-You can do this with the command: `sudo apt-get update && sudo apt-get upgrade`
+All the software packages that we are going to use are installed in Raspbian by default. Make sure to update your SD card in order to stay current. You can do this with the command: `sudo apt-get update && sudo apt-get upgrade`
 
 
 ### Extras
 
 - 1 x toy spider
 - 1 x meter of elastic string to attach your spider to your box
-- A way to attach the box to the ceiling.
+- A way to attach the box to the ceiling
 - An unsuspecting grandpa
 
 ## Steps
