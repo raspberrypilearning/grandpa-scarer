@@ -1,7 +1,7 @@
 
 # Grandpa Scarer
 
-In this project we are going to use a Raspberry Pi to play spooky noises whilst releasing a scary spider from a box onto whoever is underneath at the press of a button!
+In this project we are going to use a Raspberry Pi to play spooky noises, whilst releasing a scary spider from a box onto whoever is underneath, at the press of a button!
 
 ![Box](images/finishedBox.jpg)
 
@@ -19,22 +19,22 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 - 1 x Speaker - [PiHut](http://thepihut.com/products/mini-portable-speaker-for-the-raspberry-pi/)
 - 2 x Metal hinges - [B&Q](http://www.diy.com/nav/build/doors/door-furniture/door_hinges/-specificproducttype-butt_hinges/B-and-Q-Butt-Hinge-Brass-Plated-9370558?skuId=9671263)
 - 1 x 5mm red LED - [Proto-PIC](http://proto-pic.co.uk/led-starter-kit/)
-- 1 x 330R resistor - [Proto-PIC](http://proto-pic.co.uk/led-starter-kit/)
+- 1 x 330 Ohm resistor - [Proto-PIC](http://proto-pic.co.uk/led-starter-kit/)
 
 #### Optional
 
 - 1 x USB battery pack
-- 1 x Wifi adapter
+- 1 x Wifi adaptor
 
 ### Software
 
-All the software packages that we are going to use are installed in Raspbian by default. Make sure to update your SD card in order to stay current. You can do this with the command: `sudo apt-get update && sudo apt-get upgrade`
+All the software packages that we are going to use are installed in Raspbian by default. Make sure to update your SD card in order to stay current. You can do this with the command: `sudo apt-get update && sudo apt-get upgrade`.
 
 
 ### Extras
 
 - 1 x toy spider
-- 1 x meter of elastic string to attach your spider to your box
+- 1 x metre of elastic string to attach your spider to your box
 - A way to attach the box to the ceiling
 - An unsuspecting grandpa
 
@@ -43,7 +43,7 @@ All the software packages that we are going to use are installed in Raspbian by 
 1. Making the box enclosure
 1. Setting up your Raspberry Pi
 1. Using a servo
-1. Wiring the button and LED up
+1. Wiring up the button and LED
 1. Playing sounds
 1. Assembly
 1. Code
