@@ -273,3 +273,8 @@ Attach your box above an unsuspecting grandpa (or other family member of friend)
 If hanging the box using string, please make use of the four holes on the outer corners of the box to create a cradle of string to hang it from.
 
 Above all though, be careful as a wooden box falling on someone's head could cause serious harm!
+
+## Bonus stuff
+Here are a few extra bonus ideas you could try.
+1. There is a hole in the design for a status LED. Why not try and get that flashing when the box is primed and ready to drop!
+2. Could you make it wireless? Instead of a big red button with a long cable, why not attach a USB wifi adapter and control it from another computer, or even better, your smartphone! Why not check out the [Networking Raspberry Pis exercise](http://www.raspberrypi.org/learning/networking-lessons/lesson-1/student-instructions-1.md) for how to use Python to send messages across a network.
