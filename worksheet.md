@@ -153,16 +153,16 @@ def sound():
         "Sick_Villain-Peter_De_Lang-1465872262.mp3"
     ]
   
-  choice = random.choice(sounds)
+    choice = random.choice(sounds)
 
-  pygame.mixer.init()
-  pygame.mixer.music.load(choice)
-  pygame.mixer.music.play()
+    pygame.mixer.init()
+    pygame.mixer.music.load(choice)
+    pygame.mixer.music.play()
   
-  # Wait for the sound to finsh
-  while pygame.mixer.music.get_busy():
-      continue
-  time.sleep(0.3)
+    # Wait for the sound to finish
+    while pygame.mixer.music.get_busy():
+        continue
+    time.sleep(0.3)
 
 sound()
 ```
@@ -172,7 +172,7 @@ All the sounds can be found in the [sounds](sounds/) folder.
 To get these on your Raspberry Pi, you can use:
 
 ```bash
-wget http://goo.gl/SbK5YJ -O sounds.zip --no-check-certificate
+wget http://goo.gl/SbK5YJ -O Sounds.zip --no-check-certificate
 unzip Sounds.zip
 ```
 
@@ -243,7 +243,7 @@ def sound():
     pygame.mixer.music.load(choice)
     pygame.mixer.music.play()
 
-    Wait for the sound to finsh
+    # Wait for the sound to finish
     while pygame.mixer.music.get_busy():
         continue
     time.sleep(0.3)
