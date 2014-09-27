@@ -57,7 +57,7 @@ All the software packages that we are going to use are installed in Raspbian by 
 
 ## Disclaimer
 
-1. Do not scare people with medical conditions that could be easily be triggered.
+1. Do not scare people with medical conditions that could be easily triggered.
 2. Make sure that the box is safely and firmly attached to the ceiling. Do not take risks with this as the final product is quite heavy and could be dangerous if it falls on someone. We recommend an adult takes over for this part ;-)
 3. Take care when using the machinery described. Always have a qualified adult supervising when using appliances such as laser cutters.
 
