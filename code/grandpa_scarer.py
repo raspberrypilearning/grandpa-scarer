@@ -28,7 +28,7 @@ def sound():
     pygame.mixer.music.load(choice)
     pygame.mixer.music.play()
 
-    Wait for the sound to finsh
+    # Wait for the sound to finish
     while pygame.mixer.music.get_busy():
         continue
     time.sleep(0.3)
