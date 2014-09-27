@@ -81,7 +81,7 @@ p.stop()                 # At the end of the program, stop the PWM
 GPIO.cleanup()           # Resets the GPIO pins back to defaults
 ```
 
-## Step 3: Wiring up the button and LED
+## Step 3: Wiring up the button
 
 In order for your grandpa scarer to be activated you will need to hook up a button of some kind, preferably with a long wire attached to it so that you can be far, far away when you scare someone. Here is the button that we used:
 
