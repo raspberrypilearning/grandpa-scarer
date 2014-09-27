@@ -10,7 +10,7 @@ Many schools now also have small lasercutters so you may be able to ask your Des
 
 The required file ready to cut can be found [here](design-files/Box-design.pdf).
 
-The design is also available in a number of different formats which can be found [here](design-files/).
+The design is also available in a number of different formats which can be found [here](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/design-files).
 
 The settings required are as follows:
 
@@ -87,7 +87,7 @@ In order for your grandpa scarer to be activated you will need to hook up a butt
 
 ![](images/button.jpg)
 
-Buttons work on this concept - you have two wires, one connected to ground and the other connected to a GPIO pin. When you press the button, the circuit completes and the GPIO pin sees ground. You would think that is all that is needed but if we leave it here, we may get left with a "floating input". A floating input occurs when the GPIO pin is connected to nothing; in other words, when the button is not being pressed it is connected to nothing. The issue with this is the GPIO pin value will float back and forth between a 0 and 1 randomly.
+Buttons work on this concept - you have two wires, one connected to ground and the other connected to a GPIO pin (we had an additional wire to try out the LED in the button which didn't work). When you press the button, the circuit completes and the GPIO pin sees ground. You would think that is all that is needed but if we leave it here, we may get left with a "floating input". A floating input occurs when the GPIO pin is connected to nothing; in other words, when the button is not being pressed it is connected to nothing. The issue with this is the GPIO pin value will float back and forth between a 0 and 1 randomly.
 
 ### Pull up resistors
 
@@ -167,7 +167,7 @@ def sound():
 sound()
 ```
 
-All the sounds can be found in the [sounds](sounds/) folder.
+All the sounds can be found in the [sounds](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/sounds) folder.
 
 To get these on your Raspberry Pi, you can use:
 
@@ -192,7 +192,8 @@ Then with the speaker and Pi mounted, we can fix our servo in place. There are l
 
 When attaching things like servos be careful! You don't want to move any wires by accident!
 
-Now you should thread your power supply and button's wires through the opening that is on the enclosure (see image). If you don't do this then everything will be trapped in the box!
+Now you should thread your power supply and button's wires through the opening that is on the enclosure (see image). If you don't do this then everything will be trapped in the box!   
+Note only the 2 wires coming from the button are needed (we had a third for some other testing).
 
 ![](images/holeInBox.jpg)
 
