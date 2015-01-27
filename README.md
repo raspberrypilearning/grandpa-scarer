@@ -19,7 +19,7 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 - 1 x Speaker - [PiHut](http://thepihut.com/products/mini-portable-speaker-for-the-raspberry-pi/)
 - 2 x Metal hinges - [B&Q](http://www.diy.com/nav/build/doors/door-furniture/door_hinges/-specificproducttype-butt_hinges/B-and-Q-Butt-Hinge-Brass-Plated-9370558?skuId=9671263)
 - 1 x 5mm red LED - [Proto-PIC](http://proto-pic.co.uk/led-starter-kit/)
-- 1 x 330 Ohm resistor - [Proto-PIC](http://proto-pic.co.uk/led-starter-kit/)
+- 1 x 330 Ohm resistor - [Proto-PIC](http://proto-pic.co.uk/resistor-330-ohm-1-6th-watt-pth/)
 
 #### Optional
 
