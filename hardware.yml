@@ -1,33 +1,18 @@
-- name: 1 x Push button
-  img: push-button
+- name: 1 x Big Dome Push button
+  img: big-dome-push-button
   url: http://proto-pic.co.uk/big-dome-push-button/
 - name: 1 x Servo
   img: servo
   url: http://proto-pic.co.uk/analogue-9-gram-servo/
 - name: 1 x Wooden box
   img: wooden-box
-  url: http://boxmaker.rahulbotics.com/
-- name: 1 x Wire set
-  img: wire-set
-  url: http://proto-pic.co.uk/hook-up-wire-assortment-solid-core/
-- name: 1 x Cable ties
-  img: cable-ties
-  url: http://www.diy.com/nav/fix/electrical/cable-management/cable_ties/B-and-Q-Black-295mm-Cable-Ties-Pack-of-50-12848940?skuId=13359646
+  url: http://boxmaker.connectionlab.org/
 - name: 1 x Speaker
   img: speaker
   url: http://thepihut.com/products/mini-portable-speaker-for-the-raspberry-pi/
-- name: 2 x Metal hinges
-  img: metal-hinges
-  url: http://www.diy.com/nav/build/doors/door-furniture/door_hinges/-specificproducttype-butt_hinges/B-and-Q-Butt-Hinge-Brass-Plated-9370558?skuId=9671263
-- name: 5mm red LED
-  img: 1 x 5mm-red-led
+- name: 1 x LED
+  img: led
   url: http://proto-pic.co.uk/led-starter-kit/
 - name: 1 x 330 Ohm resistor
-  img: 330-ohm-resistor
+  img: resistor
   url: http://proto-pic.co.uk/resistor-330-ohm-1-6th-watt-pth/
-- name: USB battery pack (optional)
-  img: usb-battery-pack
-  url:
-- name: WiFi adaptor (optional)
-  img: wifi-adaptor
-  url:
