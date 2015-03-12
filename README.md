@@ -1,9 +1,8 @@
-
 # Grandpa Scarer
 
 In this project we are going to use a Raspberry Pi to play spooky noises, whilst releasing a scary spider from a box onto whoever is underneath, at the press of a button!
 
-![Box](images/finishedBox.jpg)
+![](cover.png)
 
 ## Requirements
 
@@ -30,7 +29,6 @@ As well as a Raspberry Pi with an SD card loaded with Raspbian, you'll also need
 
 All the software packages that we are going to use are installed in Raspbian by default. Make sure to update your SD card in order to stay current. You can do this with the command: `sudo apt-get update && sudo apt-get upgrade`.
 
-
 ### Extras
 
 - 1 x toy spider
@@ -38,21 +36,17 @@ All the software packages that we are going to use are installed in Raspbian by 
 - A way to attach the box to the ceiling
 - An unsuspecting grandpa
 
-## Steps
-
-1. Making the box enclosure
-1. Using a servo
-1. Wiring up the button
-1. Playing sounds
-1. Assembly
-1. Code
-1. Scare a grandpa!
-
 ## Worksheet & included files
 
 - [The worksheet](worksheet.md)
 - (Optional) Final version of Python code [grandpa_scarer.py](code/grandpa_scarer.py)
     - Download to your Pi with `wget http://goo.gl/lUuohk -O grandpa_scarer.py --no-check-certificate`
+
+## Final version
+
+What it looks like when it's finished:
+
+![Box](images/finishedBox.jpg)
 
 ## Disclaimer
 
