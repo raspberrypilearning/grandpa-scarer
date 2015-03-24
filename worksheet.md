@@ -1,6 +1,6 @@
 # Grandpa Scarer
 
-## Step 1: Making the box enclosure
+## Making the box enclosure
 
 ![](images/Drawing.jpg)
 
@@ -35,7 +35,7 @@ The required cutting area is 450mm x 400mm. If your lasercutter bed is smaller t
     
     ![Hinges](images/Hinges2.jpg)  
 
-## Step 2: Using a servo
+## Using a servo
 
 ![Servo](images/Servo.jpg)
 
@@ -81,7 +81,7 @@ p.stop()                 # At the end of the program, stop the PWM
 GPIO.cleanup()           # Resets the GPIO pins back to defaults
 ```
 
-## Step 3: Wiring up the button
+## Wiring up the button
 
 In order for your grandpa scarer to be activated you will need to hook up a button of some kind, preferably with a long wire attached to it so that you can be far, far away when you scare someone. Here is the button that we used:
 
@@ -128,7 +128,7 @@ def waitButton():
 waitbutton()
 ```
 
-## Step 4: Playing sounds
+## Playing sounds
 
 One of the key aspects of your grandpa scarer is the loud noise that it will make when you hit the button and your spider springs out. We want the sound to be frightening and *almost* deafening. The Pi doesn't have any bulit-in speakers, so how do you go about doing this? The answer is to use a small portable speaker that can easily connect to the Pi's 3.5mm audio jack here:
 
@@ -176,7 +176,7 @@ wget http://goo.gl/SbK5YJ -O Sounds.zip --no-check-certificate
 unzip Sounds.zip
 ```
 
-## Step 5: Assembly
+## Assembly
 
 Now you'll need to mount all of your electronics in your box. As the Pi is the brains of the entire operation you'll need to mount that first. You can see a laser engraved outline for where the Pi should sit, located on the right hand side of the inside of the box. This is optimised for the Raspberry Pi B+ as there are four mounting holes. As you can see from the picture below, we used 3D printed spacers and M2.5 screws to fasten our Pi in the enclosure; however, you could quite easily screw it straight onto the side.
 
@@ -209,7 +209,7 @@ Now close the lid and put the servo in place using its servo horn. We're ready t
 
 ![](images/finishedBox.jpg)
 
-## Step 6: Code
+## Code
 
 Now we put it all together and get this:
 
@@ -265,7 +265,7 @@ while True:  # Forever loop (until you hit ctrl+c)
         GPIO.cleanup()         # Resets the GPIO pins back to defaults
 ```
 
-## Step 7: Scare a grandpa
+## Scare a grandpa
 
 Attach your box above an unsuspecting grandpa (or other family member or friend), using a secure method.
 
@@ -277,9 +277,9 @@ If hanging the box using string, please make use of the four holes on the outer 
 
 Above all though, be careful, as a wooden box falling on someone's head could cause serious harm!
 
-## Bonus stuff
+## What next?
 
-Here are a few extra bonus ideas you could try:
+Other things to try:
 
 1. There is a hole in the design for a status LED. Why not try and get that flashing when the box is primed and ready to drop?
 1. Could you make it wireless? Instead of a big red button with a long cable, why not attach a USB WiFi adaptor and control it from another computer, or even better, your smartphone? Why not check out the [Networking Raspberry Pis exercise](http://www.raspberrypi.org/learning/networking-lessons/lesson-1/student-instructions-1.md) for how to use Python to send messages across a network.
