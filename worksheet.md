@@ -19,7 +19,7 @@ The settings required are as follows:
 
 The required cutting area is 450mm x 400mm. If your lasercutter bed is smaller than that, then open the file in a program like Inkscape or Adobe Illustrator and split it into 2 sheets.
 
-**As every lasercutter is different and lasers are dangerous, please only operate a lasercutter if you are trained to use that specific lasercutter, and its owner is happy with you doing so.**
+**As every lasercutter is different and lasers are dangerous, please only operate a lasercutter if you are trained to use that specific lasercutter, and its owner is happy for you to do so.**
 
 ### Lasercut the box 
 
