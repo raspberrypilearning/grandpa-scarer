@@ -6,7 +6,7 @@
 
 To make the box, we recommend lasercutting it out of 3mm plywood. The simplest way to do this is find a local makerspace/hackspace with a lasercutter and politely ask them if they can help.
 
-Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help. If all else fails, it may be possible to make the box out of tough cardboard.
+Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help. If you don't have access to a lasercutter, you could make the box out of tough cardboard.
 
 The required file ready to cut can be found [here](design-files/Box-design.pdf).
 
