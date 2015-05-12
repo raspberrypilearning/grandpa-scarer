@@ -142,7 +142,7 @@ One of the key aspects of your grandpa scarer is the loud noise that it will mak
 
 We recommend the Pi Hut's one as it is small, nifty, and powerful. You can easily hold it in place in the enclosure with two cable ties, and it can be charged from the Pi using its accompanying micro USB cable.
 
-Go ahead and plug it into your Raspberry Pi, making sure it is turned on using the button on the bottom of the speaker. Plug the power lead (micro USB to USB) into the Pi, then plug the 3.5mm audio cable into the jack on the Pi and the jack on the Pi Hut speaker. We have included some scary sounds in the code directory - feel free to add your own and edit the program!
+Go ahead and plug it into your Raspberry Pi, making sure it is turned on by using the button on the bottom of the speaker. Plug the power lead (micro USB to USB) into the Pi, then plug the 3.5mm audio cable into the jack on the Pi and the jack on the Pi Hut speaker. We have included some scary sounds in the code directory - feel free to add your own and edit the program!
 
 Now let's have a look at the Python code to play those noises:
 
