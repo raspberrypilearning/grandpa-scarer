@@ -49,9 +49,9 @@ Servos are small motors with embedded control circuitry that can turn up to 180 
 
 You control the servo by turning one of the GPIO pins on and off at an incredibly fast rate. The length of the pulses (also known as pulse width) is what controls which direction the servo is pointing in.
 
-These signals are called PWM (Pulse Width Modulation) and allow you to do all maner of things, from dimming LEDs to driving motors slower than normal.
+These signals are called PWM (Pulse Width Modulation) and allow you to do all manner of things, from dimming LEDs to driving motors slower than normal.
 
-The Raspberry Pi as standard does not support generating these PWM signals, as it does not have a dedicated clock system to do it. For this project we are using software-generated PWM signals. The drawback of this, though, is the signals won't be perfect, so the servo may jiggle back and forth a bit.
+The Raspberry Pi does not support generating these PWM signals as standard, as it does not have a dedicated clock system to do it. For this project we are using software-generated PWM signals. The drawback of this, though, is the signals won't be perfect, so the servo may jiggle back and forth a bit.
 
 ### Wiring up your servo
 
