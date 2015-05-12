@@ -103,7 +103,7 @@ To fix this issue, we use the Raspberry Pi's clever little built in pull up resi
 
 Now that you understand the basic principles behind the button's operation, let's wire it up. First off, you should have two wires connected to two of the pins on your button. The one we used had two clearly marked pins for this, however it is not uncommon for buttons (especially the breadboard variety) to have four legs; these are just two sets of two, so make sure that you only wire up one set. TIP: Colour code them. Our wires were around six metres long for a maximum scaring distance!
 
-Now that you have two wires connected to your button, you will now need to wire it up to your Raspberry Pi. Firstly, we are going to connect one of the wires to ground; with buttons it doesn't matter which one of the wires you use! As we will be connecting to the Pi's male GPIO pins and the wire from your button will most likely be male as well, it is advisable to use a female to female jumper wire in between the two to make wiring that little bit easier. Without further ado, connect a wire from your button to pin 6 of the Pi (ground). Here is a diagram:
+Now that you have two wires connected to your button, you will now need to wire it up to your Raspberry Pi. Firstly, we are going to connect one of the wires to ground: with buttons it doesn't matter which one of the wires you use! As we will be connecting to the Pi's male GPIO pins and the wire from your button will most likely be male as well, it is advisable to use a female to female jumper wire in between the two to make wiring a little bit easier. Without further ado, connect a wire from your button to pin 6 of the Pi (ground). Here is a diagram:
 
 ![](images/buttonGndOnly.png)
 
