@@ -25,21 +25,21 @@ The required cutting area is 450mm x 400mm. If your lasercutter bed is smaller t
 
 Use the settings given above.
 
-	![Lasering](images/Lasering.jpg)
+![Lasering](images/Lasering.jpg)
 	
 ### Glue the box
 
 Use a hot-glue gun to glue all the pieces of the box together. You may need someone else to help you to hold the box together as you glue it. Don't be worried if the glue goes everywhere: no one sees the inside of the box!
 
-    ![BoxGlue](images/BoxGlue1.jpg)
+![BoxGlue](images/BoxGlue1.jpg)
 
 ### Attach the hinges
 
 Grab your hinges and glue them onto the opposite side of the servo mount, on the top side of the box.
 
-    ![Hinges](images/Hinges1.jpg)
+![Hinges](images/Hinges1.jpg)
     
-    ![Hinges](images/Hinges2.jpg)  
+![Hinges](images/Hinges2.jpg)  
 
 ## Using a servo
 
