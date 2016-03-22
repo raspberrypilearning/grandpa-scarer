@@ -1,15 +1,10 @@
 - name: 1 x Big Dome Push button
   img: big-dome-push-button
-  url: http://proto-pic.co.uk/big-dome-push-button/
 - name: 1 x Servo
   img: servo
-  url: http://proto-pic.co.uk/analogue-9-gram-servo/
 - name: 1 x Speaker
   img: speaker
-  url: http://thepihut.com/products/mini-portable-speaker-for-the-raspberry-pi/
 - name: 1 x LED
   img: led
-  url: http://proto-pic.co.uk/led-starter-kit/
 - name: 1 x 330 Ohm resistor
   img: resistor-330r
-  url: http://proto-pic.co.uk/resistor-330-ohm-1-6th-watt-pth/
