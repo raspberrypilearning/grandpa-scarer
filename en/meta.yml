@@ -1,0 +1,27 @@
+---
+title: Grandpa Scarer
+hero_image: images/banner.png
+description: Make a box to drop a toy spider on Grandpa's head
+original_url: https://raspberrypi.org/learning/grandpa-scarer
+theme: red
+duration: 2
+listed: false
+ingredient: false
+copyedit: true
+curriculum: creator, design-0, programming-0, phys-comp-0, manufacture-0, community-0
+interests: ''
+technologies: rpi, physical computing, python
+site_areas: ''
+steps:
+- title: Introduction
+- title: What you will need
+- title: Grandpa Scarer
+- title: Making the box enclosure
+- title: Using a servo
+- title: Wiring up the button
+- title: Playing sounds
+- title: Assembly
+- title: Code
+- title: Scare a grandpa
+- title: What next?
+
