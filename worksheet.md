@@ -178,7 +178,7 @@ All the sounds can be found in the [sounds](https://github.com/raspberrypilearni
 To get these on your Raspberry Pi, you can use:
 
 ```bash
-wget http://goo.gl/SbK5YJ -O Sounds.zip --no-check-certificate
+wget goo.gl/BJMRuW -O Sounds.zip --no-check-certificate
 unzip Sounds.zip
 ```
 
