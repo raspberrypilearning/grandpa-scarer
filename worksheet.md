@@ -8,9 +8,9 @@ To make the box, we recommend lasercutting it out of 3mm plywood. The simplest w
 
 Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help. If you don't have access to a lasercutter, you could make the box out of tough cardboard.
 
-The required file ready to cut can be found [here](design-files/Box-design.pdf).
+The required file ready to cut can be found [here](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/en/resources/Box-design.pdf).
 
-The design is also available in a number of different formats which can be found [here](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/design-files).
+The design is also available in a number of different formats which can be found [here](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/en/resources).
 
 The settings required are as follows:
 
@@ -173,7 +173,7 @@ def sound():
 sound()
 ```
 
-All the sounds can be found in the [sounds](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/sounds) folder.
+All the sounds can be found in the [sounds](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/en/resources) folder.
 
 To get these on your Raspberry Pi, you can use:
 
