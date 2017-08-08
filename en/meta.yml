@@ -15,7 +15,6 @@ site_areas: ''
 steps:
 - title: Introduction
 - title: What you will need
-- title: Grandpa Scarer
 - title: Making the box enclosure
 - title: Using a servo
 - title: Wiring up the button

@@ -1,41 +1,46 @@
-## Making the box enclosure
+## Using a servo
 
-![](images/Drawing.jpg)
+![Servo](images/Servo.jpg)
 
-To make the box, we recommend lasercutting it out of 3mm plywood. The simplest way to do this is find a local makerspace/hackspace with a lasercutter and politely ask them if they can help.
+Servos are small motors with embedded control circuitry that can turn up to 180 degrees.
 
-Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help. If you don't have access to a lasercutter, you could make the box out of tough cardboard.
+You control the servo by turning one of the GPIO pins on and off at an incredibly fast rate. The length of the pulses (also known as pulse width) is what controls which direction the servo is pointing in.
 
-The required file ready to cut can be found [here](design-files/Box-design.pdf).
+These signals are called PWM (Pulse Width Modulation) and allow you to do all manner of things, from dimming LEDs to driving motors slower than normal.
 
-The design is also available in a number of different formats which can be found [here](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/design-files).
+The Raspberry Pi does not support generating these PWM signals as standard, as it does not have a dedicated clock system to do it. For this project we are using software-generated PWM signals. The drawback of this, though, is the signals won't be perfect, so the servo may jiggle back and forth a bit.
 
-The settings required are as follows:
+### Wiring up your servo
 
-- **Black** - Cut directly through
-- **Red** - Lower power to just score the wood.
+Servos have three leads coming from them. Normally, the brown/black one is ground, the red is 5v (for hobby servos), and yellow/orange is the signal. We will use male to female jumper wires in order to connect the female pins of the servo to the Pi's GPIO pins. First connect the brown/black wire of your servo to pin 9 of the Pi. Then attach the red wire of your servo to pin 2 - the 5v pin of the Pi. Finally, connect the control wire of the servo (yellow/orange) to pin 11 on the Pi. Here's a circuit diagram:
 
-The required cutting area is 450mm x 400mm. If your lasercutter bed is smaller than that, then open the file in a program like Inkscape or Adobe Illustrator and split it into 2 sheets.
+![](images/servo.png)
 
-**As every lasercutter is different and lasers are dangerous, please only operate a lasercutter if you are trained to use that specific lasercutter, and if its owner is happy for you to do so.**
+### Using a servo with RPi.GPIO
 
-### Lasercut the box 
+We will be using a servo for the latch that holds the panel closed.
 
-Use the settings given above.
+RPi.GPIO allows for really easy software PWM to be added to your Python programs.
 
-![Lasering](images/Lasering.jpg)
-	
-### Glue the box
+``` python
+# Set up libraries and overall settings
+import RPi.GPIO as GPIO  # Imports the standard Raspberry Pi GPIO library
+from time import sleep   # Imports sleep (aka wait or pause) into the program
+GPIO.setmode(GPIO.BOARD) # Sets the pin numbering system to use the physical layout
 
-Use a hot-glue gun to glue all the pieces of the box together. You may need someone else to help you to hold the box together as you glue it. Don't be worried if the glue goes everywhere: no one sees the inside of the box!
+# Set up pin 11 for PWM
+GPIO.setup(11,GPIO.OUT)  # Sets up pin 11 to an output (instead of an input)
+p = GPIO.PWM(11, 50)     # Sets up pin 11 as a PWM pin
+p.start(0)               # Starts running PWM on the pin and sets it to 0
 
-![BoxGlue](images/BoxGlue1.jpg)
+# Move the servo back and forth
+p.ChangeDutyCycle(3)     # Changes the pulse width to 3 (so moves the servo)
+sleep(1)                 # Wait 1 second
+p.ChangeDutyCycle(12)    # Changes the pulse width to 12 (so moves the servo)
+sleep(1)
 
-### Attach the hinges
-
-Grab your hinges and glue them onto the opposite side of the servo mount, on the top side of the box.
-
-![Hinges](images/Hinges1.jpg)
-    
-![Hinges](images/Hinges2.jpg)  
+# Clean up everything
+p.stop()                 # At the end of the program, stop the PWM
+GPIO.cleanup()           # Resets the GPIO pins back to defaults
+```
 

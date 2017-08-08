@@ -1,12 +1,7 @@
-## Scare a grandpa
+## What next?
 
-Attach your box above an unsuspecting grandpa (or other family member or friend), using a secure method.
+Other things to try:
 
-### Warning!!
-
-**Please get an adult to attach the box, and only use it when they are completely confident it won't fall.**
-
-If hanging the box using string, please make use of the four holes on the outer corners of the box to create a cradle of string to hang it from.
-
-Above all though, be careful, as a wooden box falling on someone's head could cause serious harm!
+- There is a hole in the design for a status LED. Why not try and get that flashing when the box is primed and ready to drop?
+- Could you make it wireless? Instead of a big red button with a long cable, why not attach a USB WiFi adaptor and control it from another computer, or even better, your smartphone? Why not check out the [Networking Raspberry Pis exercise](http://www.raspberrypi.org/learning/networking-lessons/lesson-1/student-instructions-1.md) for how to use Python to send messages across a network.
 

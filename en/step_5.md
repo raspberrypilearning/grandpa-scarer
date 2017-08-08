@@ -1,46 +1,47 @@
-## Using a servo
+## Wiring up the button
 
-![Servo](images/Servo.jpg)
+In order for your grandpa scarer to be activated you will need to hook up a button of some kind, preferably with a long wire attached to it so that you can be far, far away when you scare someone. Here is the button that we used:
 
-Servos are small motors with embedded control circuitry that can turn up to 180 degrees.
+![](images/button.jpg)
 
-You control the servo by turning one of the GPIO pins on and off at an incredibly fast rate. The length of the pulses (also known as pulse width) is what controls which direction the servo is pointing in.
+Buttons work on this concept - you have two wires, one connected to ground and the other connected to a GPIO pin (we had an additional wire to try out the LED in the button which didn't work). When you press the button, the circuit completes and the GPIO pin sees ground. You would think that is all that is needed but if we leave it here, we may get left with a "floating input". A floating input occurs when the GPIO pin is connected to nothing; in other words, when the button is not being pressed it is connected to nothing. The issue with this is the GPIO pin value will float back and forth between a 0 and 1 randomly.
 
-These signals are called PWM (Pulse Width Modulation) and allow you to do all manner of things, from dimming LEDs to driving motors slower than normal.
+### Pull up resistors
 
-The Raspberry Pi does not support generating these PWM signals as standard, as it does not have a dedicated clock system to do it. For this project we are using software-generated PWM signals. The drawback of this, though, is the signals won't be perfect, so the servo may jiggle back and forth a bit.
+To fix this issue, we use the Raspberry Pi's clever little built in pull up resistors. These work by connecting the GPIO pin to 3.3v via a very large resistance resistor (usually 10k!). This is a difficult path for the current to take, so it only takes it as a last resort. If the button isn't pushed this is the only option so the GPIO pin sees 3.3v; but if the button is pressed, it sees ground which is much easier to get to as it has no massive resistor. We could quite easily build this circuit on a breadboard ourselves but the Raspberry Pi has it built-in on every GPIO pin, so why create more work for ourselves?
 
-### Wiring up your servo
+### Wiring it up
 
-Servos have three leads coming from them. Normally, the brown/black one is ground, the red is 5v (for hobby servos), and yellow/orange is the signal. We will use male to female jumper wires in order to connect the female pins of the servo to the Pi's GPIO pins. First connect the brown/black wire of your servo to pin 9 of the Pi. Then attach the red wire of your servo to pin 2 - the 5v pin of the Pi. Finally, connect the control wire of the servo (yellow/orange) to pin 11 on the Pi. Here's a circuit diagram:
+Now that you understand the basic principles behind the button's operation, let's wire it up. First off, you should have two wires connected to two of the pins on your button. The one we used had two clearly marked pins for this, however it is not uncommon for buttons (especially the breadboard variety) to have four legs; these are just two sets of two, so make sure that you only wire up one set. TIP: Colour code them. Our wires were around six metres long for a maximum scaring distance!
 
-![](images/servo.png)
+Now that you have two wires connected to your button, you will now need to wire it up to your Raspberry Pi. Firstly, we are going to connect one of the wires to ground: with buttons it doesn't matter which one of the wires you use! As we will be connecting to the Pi's male GPIO pins and the wire from your button will most likely be male as well, it is advisable to use a female to female jumper wire in between the two to make wiring a little bit easier. Without further ado, connect a wire from your button to pin 6 of the Pi (ground). Here is a diagram:
 
-### Using a servo with RPi.GPIO
+![](images/buttonGndOnly.png)
 
-We will be using a servo for the latch that holds the panel closed.
+Next we need to connect the other wire from the button; this is going straight to one of the Pi's input pins in order for us to be able to read it. Again, using female to female jumper wires, connect the remaining wire from your button to pin 18 on the Pi like so:
 
-RPi.GPIO allows for really easy software PWM to be added to your Python programs.
+![](images/buttonInputGnd.png)
 
-``` python
-# Set up libraries and overall settings
-import RPi.GPIO as GPIO  # Imports the standard Raspberry Pi GPIO library
-from time import sleep   # Imports sleep (aka wait or pause) into the program
-GPIO.setmode(GPIO.BOARD) # Sets the pin numbering system to use the physical layout
+And that is it! Your button is now all wired up. If you have a mess of long cables now going to the button, it may be an idea to put one end of each into a hand drill and have a friend hold the other end. Then spin the drill to wind the cables together. You may need to use tape to help stop it unwinding.
 
-# Set up pin 11 for PWM
-GPIO.setup(11,GPIO.OUT)  # Sets up pin 11 to an output (instead of an input)
-p = GPIO.PWM(11, 50)     # Sets up pin 11 as a PWM pin
-p.start(0)               # Starts running PWM on the pin and sets it to 0
+Now let's have a look at the code that we need to read the input of a button:
 
-# Move the servo back and forth
-p.ChangeDutyCycle(3)     # Changes the pulse width to 3 (so moves the servo)
-sleep(1)                 # Wait 1 second
-p.ChangeDutyCycle(12)    # Changes the pulse width to 12 (so moves the servo)
-sleep(1)
+```python
+import RPi.GPIO as GPIO
+import time
 
-# Clean up everything
-p.stop()                 # At the end of the program, stop the PWM
-GPIO.cleanup()           # Resets the GPIO pins back to defaults
+# Sets the Pi so it knows we are using the physical pin numbering
+GPIO.setmode(GPIO.BOARD)
+
+# Sets up pin 18 as an input
+GPIO.setup(18, GPIO.IN, GPIO.PUD_UP)
+
+# Detects the button being pressed
+def waitButton():
+    GPIO.wait_for_edge(18, GPIO.RISING)
+    print('Button pressed!')
+
+# Runs function
+waitbutton()
 ```
 

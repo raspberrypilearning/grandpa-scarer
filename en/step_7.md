@@ -1,48 +1,33 @@
-## Playing sounds
+## Assembly
 
-One of the key aspects of your grandpa scarer is the loud noise that it will make when you hit the button and your spider springs out. We want the sound to be frightening and *almost* deafening. The Pi doesn't have any built-in speakers, so how do you go about doing this? The answer is to use a small portable speaker that can easily connect to the Pi's 3.5mm audio jack here:
+Now you'll need to mount all of your electronics in your box. As the Pi is the brains of the entire operation you'll need to mount that first. You can see a laser engraved outline for where the Pi should sit, located on the right hand side of the inside of the box. This is optimised for the Raspberry Pi B+ as there are four mounting holes. As you can see from the picture below, we used 3D printed spacers and M2.5 screws to fasten our Pi in the enclosure; however, you could quite easily screw it straight onto the side.
 
-![](images/audio.jpg)
+![](images/PiInEnclosure.jpg)
 
-We recommend the Pi Hut's one as it is small, nifty, and powerful. You can easily hold it in place in the enclosure with two cable ties, and it can be charged from the Pi using its accompanying micro USB cable.
+Now with the Pi attached to your box, you should put the speaker in the middle (where the laser cut outline is) and secure it in place with two cable ties like so:
 
-Go ahead and plug it into your Raspberry Pi, making sure it is turned on by using the button on the bottom of the speaker. Plug the power lead (micro USB to USB) into the Pi, then plug the 3.5mm audio cable into the jack on the Pi and the jack on the Pi Hut speaker. We have included some scary sounds in the code directory - feel free to add your own and edit the program!
+![](images/speakerCableTied.jpg)
 
-Now let's have a look at the Python code to play those noises:
+Then with the speaker and Pi mounted, we can fix our servo in place. There are laser cut spaces for screw holes; however we just used Sugru to bodge it into place. The servo horn is going to be useful for holding the lid in place. Take a look at this image as a guide:
 
-```python
-import time
-import pygame
-import random
+![](images/ServoInPlace.jpg)
 
-def sound():
-    sounds = [
-        "Female_Scream_Horror-NeoPhyTe-138499973.mp3",
-        "Monster_Gigante-Doberman-1334685792.mp3",
-        "Scary Scream-SoundBible.com-1115384336.mp3",
-        "Sick_Villain-Peter_De_Lang-1465872262.mp3"
-    ]
-  
-    choice = random.choice(sounds)
+When attaching things like servos be careful! You don't want to move any wires by accident!
 
-    pygame.mixer.init()
-    pygame.mixer.music.load(choice)
-    pygame.mixer.music.play()
-  
-    # Wait for the sound to finish
-    while pygame.mixer.music.get_busy():
-        continue
-    time.sleep(0.3)
+Now you should thread your power supply and button's wires through the opening that is on the enclosure (see image). If you don't do this then everything will be trapped in the box!   
+Note only the 2 wires coming from the button are needed (we had a third for some other testing).
 
-sound()
-```
+![](images/holeInBox.jpg)
 
-All the sounds can be found in the [sounds](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/sounds) folder.
+Now you'll have to attach your elastic thread to your spider. We used a little bit of hot glue to do this, but you could use an alternative such as Sugru or Super Glue.
 
-To get these on your Raspberry Pi, you can use:
+![](images/spiderWithElastic.jpg)
 
-```bash
-wget http://goo.gl/SbK5YJ -O Sounds.zip --no-check-certificate
-unzip Sounds.zip
-```
+Finally, attach the other end of the elastic thread to your box and place the spider upside down inside it like so:
+
+![](images/spiderInPlace.jpg)
+
+Now close the lid and put the servo in place using its servo horn. We're ready to start coding!
+
+![](images/finishedBox.jpg)
 

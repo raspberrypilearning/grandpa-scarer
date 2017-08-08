@@ -1,33 +1,56 @@
-## Assembly
+## Code
 
-Now you'll need to mount all of your electronics in your box. As the Pi is the brains of the entire operation you'll need to mount that first. You can see a laser engraved outline for where the Pi should sit, located on the right hand side of the inside of the box. This is optimised for the Raspberry Pi B+ as there are four mounting holes. As you can see from the picture below, we used 3D printed spacers and M2.5 screws to fasten our Pi in the enclosure; however, you could quite easily screw it straight onto the side.
+Now we put it all together and get this:
 
-![](images/PiInEnclosure.jpg)
+```python
+import RPi.GPIO as GPIO
+import time
+import pygame
+import random
 
-Now with the Pi attached to your box, you should put the speaker in the middle (where the laser cut outline is) and secure it in place with two cable ties like so:
+GPIO.setmode(GPIO.BOARD)
 
-![](images/speakerCableTied.jpg)
+GPIO.setup(11, GPIO.OUT)
+GPIO.setup(16, GPIO.OUT)  
+GPIO.setup(18, GPIO.IN, GPIO.PUD_UP)
+p = GPIO.PWM(11, 50)
+p.start(0)
 
-Then with the speaker and Pi mounted, we can fix our servo in place. There are laser cut spaces for screw holes; however we just used Sugru to bodge it into place. The servo horn is going to be useful for holding the lid in place. Take a look at this image as a guide:
+def waitButton():
+    GPIO.wait_for_edge(18, GPIO.RISING)  # Wait for the button to be pressed
 
-![](images/ServoInPlace.jpg)
+def sound():
+    sounds = [
+        "Female_Scream_Horror-NeoPhyTe-138499973.mp3",
+        "Monster_Gigante-Doberman-1334685792.mp3",
+        "Scary Scream-SoundBible.com-1115384336.mp3",
+        "Sick_Villain-Peter_De_Lang-1465872262.mp3",
+    ]
 
-When attaching things like servos be careful! You don't want to move any wires by accident!
+    choice = random.choice(sounds)
+    
+    pygame.mixer.init()
+    pygame.mixer.music.load(choice)
+    pygame.mixer.music.play()
 
-Now you should thread your power supply and button's wires through the opening that is on the enclosure (see image). If you don't do this then everything will be trapped in the box!   
-Note only the 2 wires coming from the button are needed (we had a third for some other testing).
+    # Wait for the sound to finish
+    while pygame.mixer.music.get_busy():
+        continue
+    time.sleep(0.3)
 
-![](images/holeInBox.jpg)
-
-Now you'll have to attach your elastic thread to your spider. We used a little bit of hot glue to do this, but you could use an alternative such as Sugru or Super Glue.
-
-![](images/spiderWithElastic.jpg)
-
-Finally, attach the other end of the elastic thread to your box and place the spider upside down inside it like so:
-
-![](images/spiderInPlace.jpg)
-
-Now close the lid and put the servo in place using its servo horn. We're ready to start coding!
-
-![](images/finishedBox.jpg)
+# Main program section
+while True:  # Forever loop (until you hit ctrl+c)
+    try:
+        waitButton()           # Wait until the button is pushed
+        p.ChangeDutyCycle(3)   # Changes the pulse width to 3 (so moves the servo)
+        time.sleep(0.1)        # Allow the servo to move
+        sound()                # Play a sound file
+        time.sleep(2)          # Wait for 2 seconds to allow you to release the button
+        waitButton()           # Wait until the button is pushed
+        p.ChangeDutyCycle(12)  # Changes the pulse width to 12 (so moves the servo back)
+        time.sleep(1)          # Allow the servo to move and start program again
+    except(KeyboardInterrupt):  
+        p.stop()               # At the end of the program, stop the PWM
+        GPIO.cleanup()         # Resets the GPIO pins back to defaults
+```
 
