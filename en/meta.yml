@@ -1,11 +1,10 @@
----
 title: Grandpa Scarer
 hero_image: images/banner.png
 description: Make a box to drop a toy spider on Grandpa's head
 original_url: https://raspberrypi.org/learning/grandpa-scarer
 theme: red
 duration: 2
-listed: false
+listed: true
 ingredient: false
 copyedit: true
 curriculum: creator, design-0, programming-0, phys-comp-0, manufacture-0, community-0
