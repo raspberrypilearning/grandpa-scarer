@@ -6,7 +6,7 @@ To make the box, we recommend lasercutting it out of 3mm plywood. The simplest w
 
 Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help. If you don't have access to a lasercutter, you could make the box out of tough cardboard.
 
-The required file ready to cut can be found [here](../en/resources/Box-design.pdf).
+The required file ready to cut can be found [here](https://github.com/raspberrypilearning/grandpa-scarer/blob/master/en/resources/Box-design.pdf)
 
 The design is also available in a number of different formats which can be found [here](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/en/resources).
 
