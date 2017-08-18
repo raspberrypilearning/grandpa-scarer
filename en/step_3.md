@@ -6,7 +6,7 @@ To make the box, we recommend lasercutting it out of 3mm plywood. The simplest w
 
 Many schools now also have small lasercutters so you may be able to ask your Design and Technology department if they can help. If you don't have access to a lasercutter, you could make the box out of tough cardboard.
 
-The required file ready to cut can be found [here](../en/resources/Box-design.pdf).
+The required file ready to cut can be found [here](resources/Box-design.pdf).
 
 The design is also available in a number of different formats which can be found [here](https://github.com/raspberrypilearning/grandpa-scarer/tree/master/en/resources).
 
@@ -19,12 +19,12 @@ The required cutting area is 450mm x 400mm. If your lasercutter bed is smaller t
 
 **As every lasercutter is different and lasers are dangerous, please only operate a lasercutter if you are trained to use that specific lasercutter, and if its owner is happy for you to do so.**
 
-### Lasercut the box 
+### Lasercut the box
 
 Use the settings given above.
 
 ![Lasering](images/Lasering.jpg)
-	
+
 ### Glue the box
 
 Use a hot-glue gun to glue all the pieces of the box together. You may need someone else to help you to hold the box together as you glue it. Don't be worried if the glue goes everywhere: no one sees the inside of the box!
@@ -36,6 +36,5 @@ Use a hot-glue gun to glue all the pieces of the box together. You may need some
 Grab your hinges and glue them onto the opposite side of the servo mount, on the top side of the box.
 
 ![Hinges](images/Hinges1.jpg)
-    
-![Hinges](images/Hinges2.jpg)  
 
+![Hinges](images/Hinges2.jpg)  
