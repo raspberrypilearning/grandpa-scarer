@@ -1,3 +1,4 @@
+---
 title: Grandpa Scarer
 hero_image: images/banner.png
 description: Make a box to drop a toy spider on Grandpa's head
@@ -15,14 +16,18 @@ hardware: electronic-components
 software: python
 version: 3
 last_tested: 2017-01-01
-steps: 
+steps:
 - title: Introduction
 - title: What you will need
 - title: Making the box enclosure
 - title: Using a servo
+  completion:
+  - engaged
 - title: Wiring up the button
 - title: Playing sounds
 - title: Assembly
 - title: Code
 - title: Scare a grandpa
+  completion:
+  - internal
 - title: What next?
